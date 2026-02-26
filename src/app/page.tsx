@@ -145,7 +145,15 @@ function CategoryBadge({ category, t }: any) {
   );
 }
 
-function AppCard({ app, index, t }) {
+function AppCard({
+  app,
+  index,
+  t,
+}: {
+  app: any
+  index: number
+  t: any
+}) {
   const [hovered, setHovered] = useState(false);
   return (
     <div
