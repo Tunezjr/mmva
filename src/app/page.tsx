@@ -267,7 +267,7 @@ export default function MonadDirectory() {
   const visible = filtered.slice(0, visibleCount);
   const hasMore = visibleCount < filtered.length;
 
-  function handleCategoryChange(cat) {
+  function handleCategoryChange(cat: string) {
     setActive(cat);
     setVisibleCount(PAGE_SIZE);
   }
