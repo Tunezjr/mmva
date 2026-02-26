@@ -128,7 +128,7 @@ const THEMES = {
 
 const CATEGORIES = ["All", "DeFi", "NFT", "Infra", "Tools"];
 
-function CategoryBadge({ category, t }) {
+function CategoryBadge({ category, t }: any) {
   const c = t.badgeColors[category] || t.badgeColors.Tools;
   return (
     <span style={{
