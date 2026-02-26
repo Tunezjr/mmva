@@ -300,14 +300,55 @@ export default function MonadDirectory() {
           grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
           gap: 18px;
         }
-        @media (max-width: 600px) {
-          .card-grid { grid-template-columns: 1fr; }
-          .hero-title { font-size: 32px !important; }
+
+        /* ── Mobile responsive layer ── */
+        @media (max-width: 768px) {
+          .card-grid {
+            grid-template-columns: 1fr;
+          }
+          .hero-title {
+            font-size: 28px !important;
+          }
+          .nav-inner {
+            padding: 14px 16px !important;
+          }
+          .nav-project-count {
+            display: none;
+          }
+          .nav-right {
+            gap: 8px !important;
+          }
+          .hero-section {
+            padding: 48px 20px 36px !important;
+          }
+          .hero-body {
+            font-size: 14px !important;
+          }
+          .filter-tabs {
+            padding: 0 16px 36px !important;
+            gap: 8px !important;
+          }
+          .grid-wrapper {
+            padding: 0 16px 60px !important;
+          }
+          .load-more-btn {
+            width: 100%;
+            box-sizing: border-box;
+          }
+        }
+
+        @media (max-width: 400px) {
+          .hero-title {
+            font-size: 22px !important;
+          }
+          .toggle-label {
+            display: none;
+          }
         }
       `}</style>
 
       {/* Nav */}
-      <nav style={{
+      <nav className="nav-inner" style={{
         padding: "18px 40px",
         display: "flex", alignItems: "center", justifyContent: "space-between",
         borderBottom: `1px solid ${t.navBorder}`,
@@ -327,8 +368,8 @@ export default function MonadDirectory() {
           </span>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <span style={{ fontSize: 12, color: t.textMuted, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", transition: "color 0.25s ease" }}>
+        <div className="nav-right" style={{ display: "flex", alignItems: "center", gap: 16 }}>
+          <span className="nav-project-count" style={{ fontSize: 12, color: t.textMuted, fontFamily: "'DM Mono', monospace", letterSpacing: "0.06em", transition: "color 0.25s ease" }}>
             {APPS.length} PROJECTS
           </span>
 
@@ -350,14 +391,14 @@ export default function MonadDirectory() {
             }}
           >
             {isDark ? <SunIcon /> : <MoonIcon />}
-            <span style={{ textTransform: "uppercase" }}>{isDark ? "Light" : "Dark"}</span>
+            <span className="toggle-label" style={{ textTransform: "uppercase" }}>{isDark ? "Light" : "Dark"}</span>
           </button>
         </div>
       </nav>
 
       <div>
         {/* Hero */}
-        <div style={{
+        <div className="hero-section" style={{
           textAlign: "center",
           padding: "80px 24px 56px",
           animation: mounted ? "heroFade 0.7s ease both" : "none",
@@ -395,7 +436,7 @@ export default function MonadDirectory() {
             {" "}Ecosystem
           </h1>
 
-          <p style={{
+          <p className="hero-body" style={{
             maxWidth: 500, margin: "0 auto",
             fontSize: "16px", lineHeight: 1.7,
             color: t.textSecondary,
@@ -408,7 +449,7 @@ export default function MonadDirectory() {
         </div>
 
         {/* Filter Tabs */}
-        <div style={{ display: "flex", justifyContent: "center", gap: 10, padding: "0 24px 52px", flexWrap: "wrap" }}>
+        <div className="filter-tabs" style={{ display: "flex", justifyContent: "center", gap: 10, padding: "0 24px 52px", flexWrap: "wrap" }}>
           {CATEGORIES.map(cat => {
             const isActive = active === cat;
             return (
@@ -458,7 +499,7 @@ export default function MonadDirectory() {
         </div>
 
         {/* Grid */}
-        <div style={{ maxWidth: 1180, margin: "0 auto", padding: "0 24px 80px" }}>
+        <div className="grid-wrapper" style={{ maxWidth: 1180, margin: "0 auto", padding: "0 24px 80px" }}>
           <div className="card-grid">
             {visible.map((app, i) => (
               <AppCard key={app.name} app={app} index={i} t={t} />
@@ -468,6 +509,7 @@ export default function MonadDirectory() {
           {hasMore && (
             <div style={{ textAlign: "center", marginTop: 40 }}>
               <button
+                className="load-more-btn"
                 onClick={() => setVisibleCount(c => c + PAGE_SIZE)}
                 style={{
                   background: "transparent",
