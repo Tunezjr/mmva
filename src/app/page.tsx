@@ -318,7 +318,7 @@ export default function MonadDirectory() {
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <img
-            src="/mnt/user-data/uploads/Logomark.png"
+            src="/logos/Logomark.png"
             alt="Monad"
             style={{ width: 30, height: 30, borderRadius: 6, display: "block" }}
           />
