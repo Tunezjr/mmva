@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MonadHub",
+  title: "Monad's Most Valuable App",
   description: "Discover projects building on Monad",
 };
 
