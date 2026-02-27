@@ -364,7 +364,7 @@ export default function MonadDirectory() {
             style={{ width: 30, height: 30, borderRadius: 6, display: "block" }}
           />
           <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, color: t.textPrimary, fontSize: 16, letterSpacing: "-0.01em", transition: "color 0.25s ease" }}>
-            Monad's<span style={{ color: BRAND.primary }}>Most Valuable App</span>
+            Monad's <span style={{ color: BRAND.primary }}>Most Valuable App</span>
           </span>
         </div>
 
